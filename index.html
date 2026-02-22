@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puls mladih - Građanska inicijativa</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2f4f63;
+            --secondary: #6c8fa3;
+            --light: #e8edf1;
+            --accent: #3f7fa3;
+            --dark: #1c2a33;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #d9e3ea, #eef3f6);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* NAVIGACIJA */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.5);
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav img {
+            height: 45px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO SEKCIJA */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            animation: slideUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: slideUp 1.2s ease;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: slideUp 1.4s ease;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            background: var(--accent);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* SEKCIJA NOVOSTI */
+        .novosti-section {
+            padding: 80px 10%;
+            background: white;
+            text-align: center;
+        }
+
+        .novosti-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 50px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: var(--light);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .news-card-body {
+            padding: 25px;
+        }
+
+        .news-card-body .date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .news-card-body h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .news-card-body p {
+            font-size: 0.95rem;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        /* TIM SEKCIJA */
+        .tim-section {
+            padding: 80px 10%;
+            background: linear-gradient(135deg, #d9e3ea, #eef3f6);
+            text-align: center;
+        }
+
+        .tim-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .coming-soon {
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            padding: 60px 20px;
+            margin-top: 30px;
+        }
+
+        .coming-soon h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* KONTAKT SEKCIJA */
+        .kontakt-section {
+            padding: 80px 10%;
+            text-align: center;
+            background: white;
+        }
+
+        .kontakt-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .kontakt-section p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .kontakt-btn {
+            padding: 16px 40px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+        }
+
+        .kontakt-btn:hover {
+            transform: scale(1.05);
+            background: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        footer a {
+            color: #9bc4d8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ANIMACIJE */
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px){
+            nav {
+                padding: 15px 5%;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .novosti-section h2,
+            .tim-section h2,
+            .kontakt-section h2 {
+                font-size: 2rem;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#pocetna"><img src="logo.jpg" alt="Puls mladih logo"></a>
+    <ul>
+        <li><a href="#pocetna">Početna</a></li>
+        <li><a href="#novosti">Novosti</a></li>
+        <li><a href="#tim">Naš tim</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-kXpmfUY5biYHO4WNm0-K8fGGVEArH8qcefwdELveWuvP7A/viewform?usp=dialog" target="_blank">Priključi se</a></li>
+        <li><a href="https://linktr.ee/pulsmladih" target="_blank">Saznaj više</a></li>
+    </ul>
+</nav>
+
+<section id="pocetna" class="hero">
+    <h1>Puls mladih</h1>
+    <p>Građanska inicijativa koja pokreće novu energiju, povezuje ideje i stvara prostor za stvarne promjene u društvu.</p>
+    <div class="hero-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-kXpmfUY5biYHO4WNm0-K8fGGVEArH8qcefwdELveWuvP7A/viewform?usp=dialog" class="btn btn-primary" target="_blank">Priključi se</a>
+        <a href="https://linktr.ee/pulsmladih" class="btn btn-secondary" target="_blank">Saznaj više</a>
+    </div>
+</section>
+
+<section id="novosti" class="novosti-section">
+    <h2>Novosti</h2>
+    <p class="section-subtitle">Najnovije vijesti, članci i fotografije iz svijeta Pulsa mladih.</p>
+    
+    <div class="news-grid">
+        <div class="news-card">
+            <div class="news-card-body">
+                <p class="date">22. veljače 2026.</p>
+                <h3>Uskoro!</h3>
+                <p>Prvi članak uskoro stiže. Pratite nas za najnovije vijesti o našim aktivnostima i projektima.</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-card-body">
+                <p class="date">22. veljače 2026.</p>
+                <h3>Najava ankete</h3>
+                <p>Pripremamo anketu o potrebama mladih. Vaše mišljenje nam je važno!</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-card-body">
+                <p class="date">22. veljače 2026.</p>
+                <h3>Pridruži se timu</h3>
+                <p>Tražimo nove članove. Ako želiš sudjelovati, javi nam se!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tim" class="tim-section">
+    <h2>Naš tim</h2>
+    <p class="section-subtitle">Upoznajte ljude koji pokreću Puls mladih.</p>
+    
+    <div class="coming-soon">
+        <h3>Uskoro!</h3>
+        <p>Sadržaj ove sekcije se priprema. Pratite nas za više informacija o našem timu.</p>
+    </div>
+</section>
+
+<section id="kontakt" class="kontakt-section">
+    <h2>Kontakt</h2>
+    <p>Imate pitanja ili želite surađivati? Javite nam se!</p>
+    <a href="mailto:pulsmladih@outlook.com" class="kontakt-btn">pulsmladih@outlook.com</a>
+</section>
+
+<footer>
+    <a href="#" onclick="alert('Stranica u izradi. Uskoro dostupno!'); return false;">Impressum</a>
+    <p>© 2025. Puls mladih - Ritam mladih koji vodi do promjene.</p>
+</footer>
+
+</body>
+</html>
