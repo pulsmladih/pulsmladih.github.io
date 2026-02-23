@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puls of Youth</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #0d1b2a, #1b3a6b, #247ba0);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+header {
+    position: fixed;
+    width: 100%;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+header h2 {
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00e5ff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero img {
+    width: 220px;
+    margin-bottom: 25px;
+    animation: float 5s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 15px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    animation: fadeIn 2s ease forwards;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 15px 35px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #00e5ff, #4facfe);
+    color: #002244;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00e5ff;
+}
+
+/* STATS SECTION */
+.stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px 10%;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    margin: 20px;
+}
+
+.stat-box h2 {
+    font-size: 40px;
+    color: #00e5ff;
+}
+
+/* PROJECTS */
+.projects {
+    padding: 100px 10%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 280px;
+    padding: 40px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 30px rgba(0,229,255,0.6);
+}
+
+/* CONTACT */
+.contact {
+    padding: 100px 10%;
+    text-align: center;
+}
+
+input, textarea {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-20px);}
+    100% {transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Puls of Youth</h2>
+    <nav>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <img src="logo.png" alt="Puls of Youth Logo">
+    <h1>Youth Energy. Real Impact.</h1>
+    <p>We empower young voices, build community, and create real social change through creativity, leadership, and action.</p>
+    <button class="btn" onclick="scrollToProjects()">Explore</button>
+    <button class="btn" onclick="joinUs()">Join Us</button>
+</section>
+
+<section class="stats">
+    <div class="stat-box">
+        <h2>150+</h2>
+        <p>Youth Members</p>
+    </div>
+    <div class="stat-box">
+        <h2>25</h2>
+        <p>Community Projects</p>
+    </div>
+    <div class="stat-box">
+        <h2>5</h2>
+        <p>Active Cities</p>
+    </div>
+</section>
+
+<section class="projects" id="projects">
+    <div class="card">
+        <h3>🌍 Community Action</h3>
+        <p>Events that make a difference locally and globally.</p>
+    </div>
+
+    <div class="card">
+        <h3>🎤 Youth Voices</h3>
+        <p>Workshops and speaking platforms for young leaders.</p>
+    </div>
+
+    <div class="card">
+        <h3>💡 Innovation Lab</h3>
+        <p>Turning creative ideas into real-world solutions.</p>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Get Involved</h2>
+    <input type="text" placeholder="Your Name">
+    <br>
+    <input type="email" placeholder="Your Email">
+    <br>
+    <textarea placeholder="Your Message"></textarea>
+    <br>
+    <button class="btn" onclick="sendMessage()">Send Message</button>
+</section>
+
+<footer>
+    © 2026 Puls of Youth | Made with 💙 for the future
+</footer>
+
+<script>
+function scrollToProjects() {
+    document.getElementById("projects").scrollIntoView({behavior: "smooth"});
+}
+
+function joinUs() {
+    alert("Welcome to Puls of Youth! 💙 We’ll contact you soon.");
+}
+
+function sendMessage() {
+    alert("Message sent successfully! 🚀");
+}
+</script>
+
+</body>
+</html>
