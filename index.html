@@ -1001,13 +1001,14 @@
                 <h2>Razgovarajmo!</h2>
                 <p>Imate pitanja ili želite surađivati? Tu smo za vas.</p>
             </div>
-            <a href="/cdn-cgi/l/email-protection#a3d3d6cfd0cecfc2c7cacbe3ccd6d7cfccccc88dc0ccce" class="kontakt-detail">
+            <div class="kontakt-detail" onclick="copyEmail()" style="cursor:pointer;" title="Klikni za kopiranje">
                 <div class="kontakt-icon">✉️</div>
                 <div class="kontakt-detail-text">
                     <strong>Email</strong>
-                    <span><span class="__cf_email__" data-cfemail="4333362f302e2f22272a2b032c36372f2c2c286d202c2e">[email&#160;protected]</span></span>
+                    <span id="emailText">pulsmladih&#64;outlook.com</span>
                 </div>
-            </a>
+                <span id="copyHint" style="margin-left:auto;font-size:0.78rem;color:var(--muted);white-space:nowrap;">📋 kopiraj</span>
+            </div>
             <a href="https://linktr.ee/pulsmladih" target="_blank" class="kontakt-detail">
                 <div class="kontakt-icon">🔗</div>
                 <div class="kontakt-detail-text">
@@ -1042,6 +1043,16 @@
 <a href="#pocetna" class="back-to-top" id="backToTop">↑</a>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Copy email
+    function copyEmail() {
+        const email = 'pulsmladih@outlook.com';
+        navigator.clipboard.writeText(email).then(() => {
+            const hint = document.getElementById('copyHint');
+            hint.textContent = '✅ kopirano!';
+            setTimeout(() => { hint.textContent = '📋 kopiraj'; }, 2000);
+        });
+    }
+
     // Enable reveal animations only after JS loads
     document.body.classList.add('js-loaded');
 
