@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijeće učenika – Puls mladih</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1710;
+            --accent: #b8952a;
+            --cream: #faf8f0;
+            --muted: #8a8070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250,248,240,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26,23,16,0.08);
+            z-index: 100;
+        }
+
+        nav img { height: 38px; }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border: 1.5px solid rgba(26,23,16,0.15);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .nav-back:hover {
+            background: var(--ink);
+            color: white;
+            border-color: var(--ink);
+        }
+
+        .article-hero-placeholder {
+            margin-top: 73px;
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, rgba(184,149,42,0.12), rgba(26,23,16,0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .article-hero-placeholder span {
+            font-size: 3rem;
+        }
+
+        .article-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            background: rgba(184,149,42,0.1);
+            color: var(--accent);
+            border: 1px solid rgba(184,149,42,0.3);
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .article-date {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--ink);
+            margin-bottom: 40px;
+        }
+
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #3a3020;
+        }
+
+        .article-body p {
+            margin-bottom: 24px;
+        }
+
+        .article-body strong {
+            color: var(--ink);
+            font-weight: 700;
+            display: block;
+            font-size: 1.1rem;
+            margin: 32px 0 12px;
+        }
+
+        .article-divider {
+            border: none;
+            border-top: 1px solid rgba(26,23,16,0.1);
+            margin: 50px 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: gap 0.3s;
+        }
+
+        .back-link:hover { gap: 14px; }
+
+        @media (max-width: 768px) {
+            nav { padding: 14px 5%; }
+            .article-wrap { padding: 40px 20px 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="logo.png" alt="Puls mladih logo"></a>
+    <a href="index.html#novosti" class="nav-back">← Natrag na novosti</a>
+</nav>
+
+<div class="article-hero-placeholder">
+    <span>🏫</span>
+</div>
+
+<div class="article-wrap">
+    <div class="article-meta">
+        <span class="article-tag">Srednja škola</span>
+        <span class="article-date">3. ožujka 2026.</span>
+    </div>
+
+    <h1 class="article-title">Vijeće učenika: Glume li samo demokraciju ili ih netko zapravo sluša?</h1>
+
+    <div class="article-body">
+        <p>Svi znamo tu scenu: svaki razred izabere svog predsjednika. Obično je to netko tko je dovoljno glasan da javi kad profesor kasni ili onaj koji ima najviše živaca za natezanje oko slanja domaćih radova u razredne grupe. Ti ljudi čine Vijeće učenika. Međutim, kad se zatvore vrata zbornice ili ureda ravnatelja, postavlja se pitanje: jesu li oni tamo samo „reda radi" da škola može reći da uvažava glas mladih, ili njihova riječ stvarno vrijedi?</p>
+
+        <strong>Koja je uloga Vijeća učenika?</strong>
+        <p>Vijeće učenika nije debatni klub za hobije. Prema zakonu, oni imaju pravo glasa o svemu što se tebe tiče: od pravila kućnog reda i izleta, do prigovora na ocjenjivanje ili lošu hranu u kantini. Ako te živcira što su zahodi stalno bez papira ili zašto je dvorana za tjelesni hladnija od hladnjaka, tvoj predstavnik u Vijeću je taj koji to mora iznijeti na stol. Ako šute, onda zapravo glume demokraciju.</p>
+
+        <strong>Tko tebe predstavlja van škole?</strong>
+        <p>Priča ne staje u hodniku škole. Tvoji predstavnici su povezani s Mrežom Vijeća učenika i Savjetom mladih tvog grada i županije. To su mjesta gdje sjede donositelji odluka – ljudi koji raspoređuju budžet za tvoj pokaz, infrastrukturu ili nove parkove. Ako tvoje Vijeće učenika spava, ti ljudi nikad neće čuti što tebi zapravo treba. Uključiti se znači prestati biti samo pasivni promatrač i postati onaj tko postavlja pitanja i aktivno zagovara za svoje potrebe u svojoj lokalnoj zajednici.</p>
+
+        <strong>Izvanškolske aktivnosti - gubljenje vremena ili edukacija?</strong>
+        <p>Možda ti se sad čini kao "gubljenje vremena", ali izvanškolske aktivnosti poput volontiranja u lokalnim udrugama imaju svoje brutalne privilegije. Osim što dobivaš volontersku knjižicu (koja je zlata vrijedna za stipendije i prve poslove, kao i životopis). Uz to, upoznaš ekipu koja vodi projekte, predstavnike lokalnih vlasti i ekipu koja ti sutra može biti mentor ili poslodavac. To je veliki "level-up" kojeg škola ne nudi u sklopu redovne nastave.</p>
+
+        <strong>Zaključak - Demokracija nije ukras!</strong>
+        <p>Vijeće učenika vrijedi točno onoliko koliko su učenici glasni. Ako dopustiš da tvoj predstavnik razreda bude samo "mrtvo slovo na papiru" na sastancima, onda je to gluma. Ali ako se počnete informirati o svojim pravima i tražiti odgovore, sustav se mora pomicati. Ne budi onaj koji samo "beštima" i sve komentira na hodniku, saznaj tko te predstavlja i pitaj ih što su zadnji put napravili za tebe.</p>
+    </div>
+
+    <hr class="article-divider">
+
+    <a href="index.html#novosti" class="back-link">← Natrag na novosti</a>
+</div>
+
+</body>
+</html>
