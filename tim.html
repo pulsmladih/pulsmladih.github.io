@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naš tim – Puls mladih</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1710;
+            --deep: #111009;
+            --accent: #b8952a;
+            --warm: #e8c96a;
+            --cream: #faf8f0;
+            --muted: #8a8070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--deep);
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17,16,9,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(184,149,42,0.12);
+            z-index: 100;
+        }
+
+        nav img { height: 38px; }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: rgba(255,255,255,0.7);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border: 1.5px solid rgba(184,149,42,0.3);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .nav-back:hover {
+            background: linear-gradient(135deg, #b8952a, #d4af50);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 140px 8% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(184,149,42,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(135deg, #b8952a, #e8c96a, #b8952a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.45);
+            font-size: 1rem;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* TEAM GRID */
+        .team-wrap {
+            padding: 0 8% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 28px;
+        }
+
+        /* CARD */
+        .team-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+            border-color: rgba(184,149,42,0.25);
+        }
+
+        .corner-tl {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 16px;
+            height: 16px;
+            border-top: 2px solid rgba(184,149,42,0.3);
+            border-left: 2px solid rgba(184,149,42,0.3);
+            border-radius: 3px 0 0 0;
+            z-index: 2;
+        }
+
+        .corner-br {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 16px;
+            height: 16px;
+            border-bottom: 2px solid rgba(184,149,42,0.3);
+            border-right: 2px solid rgba(184,149,42,0.3);
+            border-radius: 0 0 3px 0;
+            z-index: 2;
+        }
+
+        .card-photo {
+            height: 220px;
+            background: var(--ink);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .card-photo::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(184,149,42,0.1), transparent 70%);
+        }
+
+        .card-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #b8952a, #e8c96a, #b8952a, transparent);
+        }
+
+        .card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar-placeholder {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(184,149,42,0.08);
+            border: 2px solid rgba(184,149,42,0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-info {
+            padding: 24px 22px 22px;
+            text-align: center;
+        }
+
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .card-divider {
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #b8952a, #e8c96a);
+            margin: 0 auto 10px;
+            border-radius: 2px;
+        }
+
+        .card-role {
+            font-size: 0.73rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0907;
+            color: rgba(255,255,255,0.3);
+            padding: 30px 8%;
+            text-align: center;
+            font-size: 0.82rem;
+            border-top: 1px solid rgba(184,149,42,0.1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 14px 5%; }
+            .page-header { padding: 120px 6% 60px; }
+            .team-wrap { padding: 0 6% 80px; }
+            .team-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="logo.png" alt="Puls mladih logo"></a>
+    <a href="index.html#tim" class="nav-back">← Natrag</a>
+</nav>
+
+<div class="page-header">
+    <span class="section-label">Ljudi iza inicijative</span>
+    <h1>Naš <span>tim</span></h1>
+    <p>Upoznajte ljude koji svaki dan rade na tome da Puls mladih postane stvarna promjena u zajednici.</p>
+</div>
+
+<div class="team-wrap">
+    <div class="team-grid">
+
+        <div class="team-card">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="card-photo">
+                <img src="igor.png" alt="Igor Barić" onerror="this.outerHTML='<div class=\'avatar-placeholder\'>👤</div>'">
+            </div>
+            <div class="card-info">
+                <h3 class="card-name">Igor Barić</h3>
+                <div class="card-divider"></div>
+                <p class="card-role">Predsjednik inicijative</p>
+                <p class="card-desc">// opis uskoro</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="card-photo">
+                <div class="avatar-placeholder">👤</div>
+            </div>
+            <div class="card-info">
+                <h3 class="card-name">Nejla Emšo</h3>
+                <div class="card-divider"></div>
+                <p class="card-role">Koordinatorica zajednice</p>
+                <p class="card-desc">// opis uskoro</p>
+            </div>
+        </div>
+
+        <div class="team-card">
+            <div class="corner-tl"></div>
+            <div class="corner-br"></div>
+            <div class="card-photo">
+                <div class="avatar-placeholder">👤</div>
+            </div>
+            <div class="card-info">
+                <h3 class="card-name">Paula Komar</h3>
+                <div class="card-divider"></div>
+                <p class="card-role">Koordinatorica inovacija</p>
+                <p class="card-desc">// opis uskoro</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026. Puls mladih — Ritam mladih koji vodi do promjene.
+</footer>
+
+</body>
+</html>
