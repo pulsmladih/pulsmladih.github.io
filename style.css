@@ -511,7 +511,7 @@ section {
 }
 
 .tim-section {
-    background: var(--ink);
+    background: #1a1710;
     color: white;
 }
 
@@ -1163,12 +1163,17 @@ footer {
 }
 
 [data-theme="dark"] .hero-logo-wrap {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.03);
     border-color: rgba(184,149,42,0.15);
 }
 
 [data-theme="dark"] .hero-logo-wrap img {
-    filter: brightness(0) invert(1);
+    filter: drop-shadow(0 20px 60px rgba(184,149,42,0.15));
+}
+
+[data-theme="dark"] .hero-logo-wrap::before {
+    border-radius: 24px;
+    background: radial-gradient(circle at 40% 40%, rgba(184,149,42,0.1), rgba(17,16,9,0.08));
 }
 
 [data-theme="dark"] .o-nama-card {
@@ -1216,4 +1221,71 @@ footer {
 [data-theme="dark"] footer {
     background: #0a0907;
     border-top-color: rgba(184,149,42,0.1);
+}
+
+/* ─── DARK MODE TEXT FIXES ─── */
+[data-theme="dark"] .tim-section {
+    background: #1a1710;
+}
+
+[data-theme="dark"] .tim-section .section-label,
+[data-theme="dark"] .tim-section .section-header h2,
+[data-theme="dark"] .tim-section .section-header p,
+[data-theme="dark"] .team-preview-info h3,
+[data-theme="dark"] .team-preview-info p {
+    color: inherit;
+}
+
+[data-theme="dark"] .o-nama-section {
+    background: var(--bg);
+}
+
+[data-theme="dark"] .o-nama-card {
+    background: #1e1c14;
+    border-color: rgba(184,149,42,0.12);
+}
+
+[data-theme="dark"] .o-nama-card h4 {
+    color: var(--ink);
+}
+
+[data-theme="dark"] .o-nama-card p {
+    color: var(--muted);
+}
+
+[data-theme="dark"] .section-label {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .news-card-tag {
+    background: rgba(184,149,42,0.15);
+}
+
+[data-theme="dark"] .news-card-title {
+    color: var(--ink);
+}
+
+[data-theme="dark"] .news-card-excerpt {
+    color: var(--muted);
+}
+
+[data-theme="dark"] .news-card-date {
+    color: var(--muted);
+}
+
+[data-theme="dark"] .kontakt-section h2,
+[data-theme="dark"] .kontakt-section p {
+    color: var(--ink);
+}
+
+[data-theme="dark"] .hero p {
+    color: rgba(240,236,224,0.65);
+}
+
+[data-theme="dark"] .stat-num {
+    color: var(--ink);
+}
+
+[data-theme="dark"] .stat-label {
+    color: var(--muted);
 }
