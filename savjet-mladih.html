@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savjet mladih još nema – Puls mladih</title>
+    <meta name="description" content="Obećano proljeće je stiglo, samo Savjeta mladih još nema. Puls mladih pita: gdje je zapelo?">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1710;
+            --deep: #111009;
+            --accent: #b8952a;
+            --warm: #e8c96a;
+            --cream: #faf8f0;
+            --muted: #8a8070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250,248,243,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26,23,16,0.08);
+            z-index: 100;
+        }
+
+        nav img { height: 38px; }
+
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: rgba(26,23,16,0.6);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border: 1.5px solid rgba(26,23,16,0.15);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+
+        .nav-back:hover {
+            background: var(--ink);
+            color: var(--cream);
+            border-color: transparent;
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            padding: 130px 8% 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(184,149,42,0.1);
+            color: var(--accent);
+            border: 1px solid rgba(184,149,42,0.3);
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .article-date {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .article-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 24px;
+        }
+
+        .article-hero h1 span {
+            background: linear-gradient(135deg, #b8952a, #e8c96a, #b8952a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-lead {
+            font-size: 1.15rem;
+            color: var(--muted);
+            line-height: 1.75;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* ARTICLE IMAGE */
+        .article-image {
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto 60px;
+            padding: 0 8%;
+        }
+
+        .article-image img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .article-image figcaption {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* ARTICLE BODY */
+        .article-body {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 8% 100px;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: #3a3528;
+            margin-bottom: 24px;
+        }
+
+        .article-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 48px 0 20px;
+        }
+
+        .article-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin: 36px 0 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+        }
+
+        .quote-block {
+            background: rgba(184,149,42,0.06);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 16px 16px 0;
+            padding: 28px 32px;
+            margin: 36px 0;
+        }
+
+        .quote-block p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--ink);
+            line-height: 1.7;
+            margin: 0 0 12px;
+        }
+
+        .quote-block cite {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-style: normal;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .highlight-box {
+            background: var(--ink);
+            color: white;
+            border-radius: 20px;
+            padding: 36px 40px;
+            margin: 48px 0;
+        }
+
+        .highlight-box p {
+            color: rgba(255,255,255,0.75);
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box strong {
+            color: var(--warm);
+        }
+
+        .highlight-box .big-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .action-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 28px;
+        }
+
+        .action-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 1.05rem;
+            color: #3a3528;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(26,23,16,0.06);
+        }
+
+        .action-list li:last-child {
+            border-bottom: none;
+        }
+
+        .action-list li::before {
+            content: '—';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* BACK LINK */
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            transition: gap 0.3s;
+        }
+
+        .article-back:hover { gap: 14px; }
+
+        /* FOOTER */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.3);
+            padding: 30px 8%;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="logo.png" alt="Puls mladih logo"></a>
+    <a href="index.html#novosti" class="nav-back">← Natrag na novosti</a>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+    <div class="article-meta">
+        <span class="article-tag">Zagovaranje</span>
+        <span class="article-date">29. ožujka 2026.</span>
+    </div>
+    <h1>Obećano proljeće je stiglo — <span>samo Savjeta mladih još nema</span></h1>
+    <p class="article-lead">Gradonačelnik Solina obećao je da će do proljeća mnoge stvari biti riješene. Proljeće je stiglo. Savjet mladih — nije.</p>
+</div>
+
+<!-- IMAGE -->
+<figure class="article-image">
+    <img src="Savjetmladih-nepostoji.png" alt="Građani Solina na sastanku u mjesnom odboru">
+    <figcaption>Sastanak "Grad u tvom mjesnom odboru", listopad 2025. — jedan od prijedloga građana bio je upravo osnivanje Savjeta mladih</figcaption>
+</figure>
+
+<!-- ARTICLE BODY -->
+<div class="article-body">
+
+    <p>U listopadu prošle godine, naš predstavnik Igor Barić sudjelovao je na projektu <strong>"Grad u tvom mjesnom odboru"</strong> — inicijativi gradonačelnika Dalibora Ninčevića s ciljem izravne komunikacije s građanima i uključivanja zajednice u planiranje gradskih ulaganja i prioriteta.</p>
+
+    <p>Jedan od prijedloga koji su građani tada iznijeli bio je osnivanje Savjeta mladih — tijela koje nije nikakav eksperiment, nego zakonska obveza i mehanizam kojim mladi dobivaju formalni prostor za sudjelovanje u životu grada.</p>
+
+    <div class="quote-block">
+        <p>„Puno toga naučim i ja, naučimo i mi. Doznamo mnogo od građana, a uvijek je i puno ideja — primjerice, od mladih koji predlažu formiranje Savjeta mladih. Vjerujem da će na proljeće, kada ponovno dođemo, mnoge stvari o kojima smo sada razgovarali biti i riješene."</p>
+        <cite>— Dalibor Ninčević, gradonačelnik Solina, listopad 2025.</cite>
+    </div>
+
+    <h2>Danas je kraj ožujka. Proljeće je stiglo. Di je Savjet?</h2>
+
+    <p>Kao inicijativa, nismo samo čekali. Poduzeli smo konkretne korake kako bismo dobili odgovor:</p>
+
+    <ul class="action-list">
+        <li>Slali smo službene upite putem e-maila</li>
+        <li>Pokušali dobiti informacije kroz više neformalnih razgovora izravno s gradonačelnikom</li>
+        <li>I dalje ostali bez konkretnog odgovora</li>
+    </ul>
+
+    <h3>Zašto je ovo važno</h3>
+
+    <p>Savjet mladih nije politička tema niti stvar dobre volje — to je <strong>zakonska obveza</strong> jedinice lokalne samouprave. Zakon o savjetima mladih jasno propisuje da gradovi moraju osnovati to tijelo kako bi mladi mogli sudjelovati u donošenju odluka koje ih se tiču.</p>
+
+    <p>Bez Savjeta mladih, mladi u Solinu nemaju formalni kanal kroz koji mogu utjecati na gradske odluke o obrazovanju, sportu, kulturi ili zapošljavanju. Ostaju isključeni iz procesa koji oblikuje njihovu svakodnevicu.</p>
+
+    <div class="highlight-box">
+        <span class="big-question">👉 Gdje je zapelo?</span>
+        <p>Puls mladih će se nastaviti boriti i inzistirati na konkretnim koracima i odgovornosti jer vjerujemo da <strong>mladi u Solinu zaslužuju biti uključeni, a ne ignorirani.</strong></p>
+    </div>
+
+    <p>Nastavit ćemo pratiti ovu temu i javno dokumentirati svaki korak — i naš i gradonačelnikov. Jer transparentnost nije privilegija, nego pravo.</p>
+
+    <a href="index.html#novosti" class="article-back">← Natrag na novosti</a>
+
+</div>
+
+<footer>
+    © 2026. Puls mladih — Ritam mladih koji vodi do promjene.
+</footer>
+
+</body>
+</html>
