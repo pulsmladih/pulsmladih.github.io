@@ -227,6 +227,19 @@
         }
 
         /* SURADNICI */
+        .suradnici-kategorija {
+            margin-bottom: 20px;
+        }
+
+        .suradnici-kat-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
         .suradnici-grid {
             display: flex;
             flex-wrap: wrap;
@@ -409,12 +422,30 @@
     <div class="imp-section">
         <h2 class="imp-section-title"><span class="imp-icon">🤝</span> Prijatelji inicijative</h2>
         <p style="color:var(--muted);font-size:0.95rem;margin-bottom:20px;line-height:1.7;">Organizacije, projekti i pojedinci s kojima Puls mladih surađuje u ostvarivanju zajedničkih ciljeva.</p>
-        <div class="suradnici-grid">
-            <div class="suradnik-tag"><span>🌍</span> GOOSKA – Erasmus+</div>
-            <div class="suradnik-tag"><span>🏛️</span> Grad Solin, Grad Split, Savjet mladih Grada Splita, Savjet mladih Splitsko - dalmatinske županije</div>
-            <div class="suradnik-tag"><span>🎓</span> Srednje škole Splita</div>
-            <div class="suradnik-tag"><span>➕</span> Uskoro više suradnika</div>
-        </div>
+        <div class="suradnici-kategorija">
+                <p class="suradnici-kat-label">Projekti</p>
+                <div class="suradnici-grid">
+                    <div class="suradnik-tag"><span>🌍</span> GOOSKA – Erasmus+</div>
+                </div>
+            </div>
+
+            <div class="suradnici-kategorija">
+                <p class="suradnici-kat-label">Institucije</p>
+                <div class="suradnici-grid">
+                    <div class="suradnik-tag"><span>🏛️</span> Grad Solin</div>
+                    <div class="suradnik-tag"><span>🏛️</span> Grad Split</div>
+                    <div class="suradnik-tag"><span>🗳️</span> Savjet mladih Grada Splita</div>
+                    <div class="suradnik-tag"><span>🗳️</span> Savjet mladih Splitsko-dalmatinske županije</div>
+                </div>
+            </div>
+
+            <div class="suradnici-kategorija">
+                <p class="suradnici-kat-label">Škole</p>
+                <div class="suradnici-grid">
+                    <div class="suradnik-tag"><span>🎓</span> Srednje škole Splita i okolice</div>
+                    <div class="suradnik-tag"><span>➕</span> Uskoro više suradnika</div>
+                </div>
+            </div>
     </div>
 
     <!-- KONTAKT -->
@@ -423,8 +454,8 @@
         <div class="kontakt-box">
             <div class="kontakt-icon-wrap">📬</div>
             <div>
-                <p>Kontakt:</p>
-                <a href="mailto:pulsmladih@outlook.com">pulsmladih@outlook.com</a>
+                <p>Elektronička pošta</p>
+                <a href="/cdn-cgi/l/email-protection#4e3e3b223d23222f2a27260e213b3a22212125602d2123"><span class="__cf_email__" data-cfemail="4b3b3e273826272a2f22230b243e3f2724242065282426">[email&#160;protected]</span></a>
             </div>
         </div>
     </div>
@@ -503,7 +534,7 @@
                 <span class="goal-num">09</span>
                 <div class="goal-text">
                     <h4>Razvijanje građanske pismenosti</h4>
-                    <p>Kampanje, plakati i radionice kojima se mladi uče o njihovim pravima.</p>
+                    <p>Kampanje, plakati i radionice kojima se mladi uče o svojim pravima.</p>
                 </div>
             </div>
 
@@ -511,7 +542,7 @@
                 <span class="goal-num">10</span>
                 <div class="goal-text">
                     <h4>Smanjenje iseljavanja mladih</h4>
-                    <p>Dijalog s institucijama i programi potpore kako Split, okolica, ali i ostala mjesta ne bi gubili mlado stanovništvo.</p>
+                    <p>Dijalog s institucijama i programi potpore kako Split ne bi gubio mlade ljude.</p>
                 </div>
             </div>
 
@@ -527,7 +558,7 @@
                 <span class="goal-num">12</span>
                 <div class="goal-text">
                     <h4>Dijalog s dijasporom</h4>
-                    <p>Suradnja s tijelima lokalne (regionalne) samouprave i tijelima na razini državne uprave na programima zadržavanja i povratka mladih.</p>
+                    <p>Suradnja s tijelima lokalne i državne razine na programima zadržavanja i povratka mladih.</p>
                 </div>
             </div>
 
@@ -543,7 +574,7 @@
                 <span class="goal-num">14</span>
                 <div class="goal-text">
                     <h4>Razvoj volontiranja</h4>
-                    <p>Sustav priznavanja volontiranja i aktivnosti kojima se dobrovoljan rad vrednuje kao i radni odnos prema ugovoru.</p>
+                    <p>Sustav priznavanja volontiranja i aktivnosti kojima se dobrovoljan rad vrednuje.</p>
                 </div>
             </div>
 
@@ -551,7 +582,7 @@
                 <span class="goal-num">15</span>
                 <div class="goal-text">
                     <h4>Bolja prometna povezanost</h4>
-                    <p>Unaprjeđenje prijevoza i linija između Splita i okolnih mjesta koja su slabo pokrivena.</p>
+                    <p>Unaprjeđenje prijevoza između Splita i okolnih mjesta koja su slabo pokrivena.</p>
                 </div>
             </div>
 
@@ -567,7 +598,7 @@
                 <span class="goal-num">17</span>
                 <div class="goal-text">
                     <h4>Zaštita studenata od sezonskog izbacivanja</h4>
-                    <p>Uvođenje studentskih najamnih ugovora koji štite od izbacivanja tokom turističke sezone.</p>
+                    <p>Uvođenje studentskih najamnih ugovora koji štite od izbacivanja za turističku sezonu.</p>
                 </div>
             </div>
 
@@ -575,7 +606,7 @@
                 <span class="goal-num">18</span>
                 <div class="goal-text">
                     <h4>Više i veće stipendije</h4>
-                    <p>Zagovaranje povećanja stipendija koje prate stvarne troškove života učenika i studenata.</p>
+                    <p>Zagovaranje povećanja stipendija koje prate stvarne troškove života studenata.</p>
                 </div>
             </div>
 
@@ -590,7 +621,7 @@
             <div class="goal-card">
                 <span class="goal-num">20</span>
                 <div class="goal-text">
-                    <h4>Besplatne tečajevi/pripreme za maturu</h4>
+                    <h4>Besplatne pripreme za maturu</h4>
                     <p>Organizirani ciklusi besplatnih priprema u suradnji s profesorima i studentima.</p>
                 </div>
             </div>
@@ -598,8 +629,8 @@
             <div class="goal-card">
                 <span class="goal-num">21</span>
                 <div class="goal-text">
-                    <h4>Sufinanciranje vozačkog ispita za mlade iz socijalno ugroženih obitelji</h4>
-                    <p>Pomoć mladima iz socijalno ugroženih obitelji pri plaćanju vozačkog ispita u autoškoli.</p>
+                    <h4>Sufinanciranje vozačkog ispita</h4>
+                    <p>Pomoć mladima iz socijalno ugroženih obitelji pri plaćanju autoškole.</p>
                 </div>
             </div>
 
@@ -607,7 +638,7 @@
                 <span class="goal-num">22</span>
                 <div class="goal-text">
                     <h4>Digitalna platforma za poslove</h4>
-                    <p>Lokalna baza provjerenih poslodavaca i studentskih poslova s ocjenama korisnika koji su prethodno radili kod poslodavca.</p>
+                    <p>Lokalna baza provjerenih poslodavaca i studentskih poslova s ocjenama korisnika.</p>
                 </div>
             </div>
 
@@ -615,7 +646,7 @@
                 <span class="goal-num">23</span>
                 <div class="goal-text">
                     <h4>Revitalizacija školskih igrališta</h4>
-                    <p>Obnova, rasvjeta i otvorenost školskih terena za mlade iz lokalnih kvartova u večernjim satima.</p>
+                    <p>Obnova, rasvjeta i otvorenost školskih terena za mlade iz kvarta navečer.</p>
                 </div>
             </div>
 
@@ -623,7 +654,7 @@
                 <span class="goal-num">24</span>
                 <div class="goal-text">
                     <h4>Financijska pismenost mladih</h4>
-                    <p>Radionice o porezima, ugovorima i prvom zapošljavanju mladih. Praktično, a ne teorijski.</p>
+                    <p>Radionice o porezima, ugovorima i prvom zaposlenju — praktično, ne teorijski.</p>
                 </div>
             </div>
 
@@ -631,7 +662,7 @@
                 <span class="goal-num">25</span>
                 <div class="goal-text">
                     <h4>Sigurnost u prometu — pješačke zone</h4>
-                    <p>Mapiranje kritičnih točaka u gradu i bolja rasvjeta u gradu i okolici.</p>
+                    <p>Mapiranje kritičnih točaka i bolja rasvjeta u gradu i okolici.</p>
                 </div>
             </div>
 
@@ -647,7 +678,7 @@
                 <span class="goal-num">27</span>
                 <div class="goal-text">
                     <h4>Borba protiv cyberbullyinga</h4>
-                    <p>Mreža podrške za žrtve digitalnog nasilja ili bilo koje druge vrste nasilja uz stručnu i vršnjačku pomoć.</p>
+                    <p>Mreža podrške za žrtve digitalnog nasilja uz stručnu i vršnjačku pomoć.</p>
                 </div>
             </div>
 
@@ -655,7 +686,7 @@
                 <span class="goal-num">28</span>
                 <div class="goal-text">
                     <h4>Modernizacija studentskih menzi</h4>
-                    <p>Bolja i zdravija ponuda, dulje radno vrijeme i digitalizacija sustava u menzama.</p>
+                    <p>Zdravija ponuda, dulje radno vrijeme i digitalizacija sustava u menzama.</p>
                 </div>
             </div>
 
@@ -663,7 +694,7 @@
                 <span class="goal-num">29</span>
                 <div class="goal-text">
                     <h4>Upoznaj svoju lokalnu sredinu</h4>
-                    <p>Besplatne interaktivne ture (muzeji, kina i druga kulturna baština) - escape room koncepti za mlade po gradu.</p>
+                    <p>Besplatne interaktivne ture i escape room koncepti za mlade po gradu.</p>
                 </div>
             </div>
 
@@ -679,7 +710,7 @@
                 <span class="goal-num">31</span>
                 <div class="goal-text">
                     <h4>Jeftinije ulaznice za kulturna događanja</h4>
-                    <p>Posebni "voucher" u obliku kartice s popustom za sve mlade do 25% na kulturne manifestacije Grada i županije.</p>
+                    <p>Posebna kartica s popustom za sve mlade do 25 na kulturne manifestacije Grada.</p>
                 </div>
             </div>
 
@@ -695,7 +726,7 @@
                 <span class="goal-num">33</span>
                 <div class="goal-text">
                     <h4>Bolja biciklistička infrastruktura</h4>
-                    <p>Sigurnije rute od kvartova prema kampusu i staroj gradskoj jezgri.</p>
+                    <p>Sigurne rute od kvartova prema kampusu i staroj gradskoj jezgri.</p>
                 </div>
             </div>
 
@@ -703,7 +734,7 @@
                 <span class="goal-num">34</span>
                 <div class="goal-text">
                     <h4>Prava mladih radnika</h4>
-                    <p>Vodič o minimalnoj satnici, pravima i osiguranju za mlade koji rade preko učeničkog ili studentskog ugovora.</p>
+                    <p>Vodič o minimalnoj satnici, pravima i osiguranju za mlade koji rade studentski.</p>
                 </div>
             </div>
 
@@ -711,18 +742,6 @@
                 <span class="goal-num">35</span>
                 <div class="goal-text">
                     <h4>Godišnji skupovi mladih</h4>
-                    <p>Forum gdje mladi iz svih kvartova imaju priliku sjesti za stol s Gradonačelnikom i vijećnicima i zagovarati svoje interese i ideje pred donositeljima odluka.</p>
+                    <p>Forum gdje mladi iz svih kvartova sjede za stol s Gradonačelnikom i vijećnicima.</p>
                 </div>
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    © 2026. Puls mladih — Ritam mladih koji vodi do promjene.
-</footer>
-
-</body>
-</html>
+            </d
