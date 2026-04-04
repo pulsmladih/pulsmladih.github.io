@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum – Puls mladih</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1710;
+            --deep: #111009;
+            --accent: #b8952a;
+            --warm: #e8c96a;
+            --cream: #faf8f0;
+            --muted: #8a8070;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250,248,243,0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(26,23,16,0.08);
+            z-index: 100;
+        }
+        nav img { height: 38px; }
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: rgba(26,23,16,0.6);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            border: 1.5px solid rgba(26,23,16,0.15);
+            border-radius: 100px;
+            transition: all 0.3s;
+        }
+        .nav-back:hover {
+            background: var(--ink);
+            color: var(--cream);
+            border-color: transparent;
+        }
+
+        /* HERO */
+        .page-hero {
+            padding: 130px 8% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 500px;
+            background: radial-gradient(circle, rgba(184,149,42,0.06), transparent 70%);
+            pointer-events: none;
+        }
+
+        /* LOGO KOJI DIŠE */
+        .hero-logo-wrap {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, rgba(184,149,42,0.1), rgba(26,23,16,0.05));
+            animation: pulse-ring 3s ease-in-out infinite;
+        }
+
+        .hero-logo-wrap img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 8px 30px rgba(184,149,42,0.2));
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.08); opacity: 0.7; }
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: var(--ink);
+        }
+
+        .page-hero h1 span {
+            background: linear-gradient(135deg, #b8952a, #e8c96a, #b8952a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-hero p {
+            color: var(--muted);
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* MAIN CONTENT */
+        .impressum-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 8% 100px;
+        }
+
+        /* SECTION BLOCK */
+        .imp-section {
+            margin-bottom: 70px;
+        }
+
+        .imp-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid rgba(184,149,42,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .imp-section-title .imp-icon {
+            font-size: 1.2rem;
+        }
+
+        /* PEOPLE CARDS */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .person-card {
+            background: white;
+            border: 1px solid rgba(26,23,16,0.07);
+            border-radius: 20px;
+            padding: 28px 26px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #b8952a, #e8c96a, #b8952a);
+        }
+
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .person-role {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .person-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+
+        .person-desc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* SURADNICI */
+        .suradnici-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .suradnik-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid rgba(184,149,42,0.2);
+            border-radius: 100px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--ink);
+            transition: all 0.3s;
+        }
+
+        .suradnik-tag:hover {
+            background: rgba(184,149,42,0.06);
+            border-color: var(--accent);
+        }
+
+        .suradnik-tag span {
+            font-size: 1rem;
+        }
+
+        /* KONTAKT */
+        .kontakt-box {
+            background: white;
+            border: 1px solid rgba(26,23,16,0.07);
+            border-radius: 20px;
+            padding: 32px 36px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .kontakt-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: rgba(184,149,42,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .kontakt-box p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .kontakt-box a {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .kontakt-box a:hover { color: var(--accent); }
+
+        /* GOALS */
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .goal-card {
+            background: white;
+            border: 1px solid rgba(26,23,16,0.06);
+            border-radius: 16px;
+            padding: 22px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.07);
+            border-color: rgba(184,149,42,0.25);
+        }
+
+        .goal-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #b8952a, #e8c96a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 32px;
+        }
+
+        .goal-text h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .goal-text p {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ink);
+            color: rgba(255,255,255,0.3);
+            padding: 30px 8%;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 14px 5%; }
+            .page-hero { padding: 110px 6% 60px; }
+            .impressum-wrap { padding: 0 6% 80px; }
+            .kontakt-box { flex-direction: column; align-items: flex-start; }
+            .goals-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html"><img src="logo.png" alt="Puls mladih logo"></a>
+    <a href="index.html" class="nav-back">← Natrag</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+    <div class="hero-logo-wrap">
+        <img src="logo.png" alt="Puls mladih logo">
+    </div>
+    <span class="section-label">Transparentnost & informacije</span>
+    <h1>Impre<span>ssum</span></h1>
+    <p>Sve što trebate znati o inicijativi Puls mladih — tko smo, s kim surađujemo i čemu težimo.</p>
+</div>
+
+<!-- MAIN -->
+<div class="impressum-wrap">
+
+    <!-- PREDSJEDNIK -->
+    <div class="imp-section">
+        <h2 class="imp-section-title"><span class="imp-icon">👤</span> Vodstvo inicijative</h2>
+        <div class="people-grid">
+            <div class="person-card">
+                <p class="person-role">Predsjednik inicijative</p>
+                <h3 class="person-name">Igor Barić</h3>
+                <p class="person-desc">Osnivač i predsjednik. Zadužen za strategiju, organizaciju i zastupanje inicijative prema javnosti i institucijama.</p>
+            </div>
+            <div class="person-card">
+                <p class="person-role">Glavni urednik</p>
+                <h3 class="person-name">Igor Barić</h3>
+                <p class="person-desc">Odgovoran za sadržaj objavljivan na web stranici i društvenim mrežama inicijative Puls mladih.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SURADNICI -->
+    <div class="imp-section">
+        <h2 class="imp-section-title"><span class="imp-icon">🤝</span> Prijatelji inicijative</h2>
+        <p style="color:var(--muted);font-size:0.95rem;margin-bottom:20px;line-height:1.7;">Organizacije, projekti i pojedinci s kojima Puls mladih surađuje u ostvarivanju zajedničkih ciljeva.</p>
+        <div class="suradnici-grid">
+            <div class="suradnik-tag"><span>🌍</span> GOOSKA – Erasmus+</div>
+            <div class="suradnik-tag"><span>🏛️</span> Grad Solin</div>
+            <div class="suradnik-tag"><span>🎓</span> Srednje škole Splita i okolice</div>
+            <div class="suradnik-tag"><span>➕</span> Uskoro više suradnika</div>
+        </div>
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="imp-section">
+        <h2 class="imp-section-title"><span class="imp-icon">✉️</span> Kontakt</h2>
+        <div class="kontakt-box">
+            <div class="kontakt-icon-wrap">📬</div>
+            <div>
+                <p>Elektronička pošta</p>
+                <a href="mailto:pulsmladih@outlook.com">pulsmladih@outlook.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CILJEVI -->
+    <div class="imp-section">
+        <h2 class="imp-section-title"><span class="imp-icon">🎯</span> Ciljevi inicijative</h2>
+        <p style="color:var(--muted);font-size:0.95rem;margin-bottom:28px;line-height:1.7;">Puls mladih djeluje kao neformalna građanska inicijativa s 35 konkretnih ciljeva usmjerenih prema poboljšanju kvalitete života mladih u Splitu i okolici.</p>
+        <div class="goals-grid">
+
+            <div class="goal-card">
+                <span class="goal-num">01</span>
+                <div class="goal-text">
+                    <h4>Jačanje mentalnog zdravlja mladih</h4>
+                    <p>Besplatna savjetovališta, radionice i stručna pomoć u školama i fakultetima.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">02</span>
+                <div class="goal-text">
+                    <h4>Podrška mladim poduzetnicima</h4>
+                    <p>Prostori, edukacije i suradnja s institucijama za pokretanje vlastitog posla.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">03</span>
+                <div class="goal-text">
+                    <h4>Noćne linije javnog prijevoza</h4>
+                    <p>Sigurniji povratak kući bez ovisnosti o taksijima ili roditeljima.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">04</span>
+                <div class="goal-text">
+                    <h4>Otvaranje prostora za mlade</h4>
+                    <p>Besplatni kvartovski prostori za druženje — Dom mladih kao konkretan primjer.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">05</span>
+                <div class="goal-text">
+                    <h4>Participacija mladih u javnom životu</h4>
+                    <p>Digitalna platforma za direktnu komunikaciju mladih s donositeljima odluka.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">06</span>
+                <div class="goal-text">
+                    <h4>Sportsko-rekreacijski sadržaj</h4>
+                    <p>Više parkova, jeftiniji sport i gradska sportska događanja za mlade.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">07</span>
+                <div class="goal-text">
+                    <h4>Uključivanje škola</h4>
+                    <p>Edukacije i projekti kojima se osnovnoškolci i srednjoškolci uče aktivnom građanstvu.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">08</span>
+                <div class="goal-text">
+                    <h4>Inkluzivnost i jednake mogućnosti</h4>
+                    <p>Pristupačni prostori i jednakost u obrazovanju za sve mlade bez iznimke.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">09</span>
+                <div class="goal-text">
+                    <h4>Razvijanje građanske pismenosti</h4>
+                    <p>Kampanje, plakati i radionice kojima se mladi uče o svojim pravima.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">10</span>
+                <div class="goal-text">
+                    <h4>Smanjenje iseljavanja mladih</h4>
+                    <p>Dijalog s institucijama i programi potpore kako Split ne bi gubio mlade ljude.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">11</span>
+                <div class="goal-text">
+                    <h4>Unaprjeđenje slobodnog vremena</h4>
+                    <p>Više javnih prostora, kulturnih večeri i sportskih događanja po pristupačnim cijenama.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">12</span>
+                <div class="goal-text">
+                    <h4>Dijalog s dijasporom</h4>
+                    <p>Suradnja s tijelima lokalne i državne razine na programima zadržavanja i povratka mladih.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">13</span>
+                <div class="goal-text">
+                    <h4>Ekološka osviještenost</h4>
+                    <p>Edukacije i pritisak na sustav razdvajanja otpada koji zaista funkcionira.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">14</span>
+                <div class="goal-text">
+                    <h4>Razvoj volontiranja</h4>
+                    <p>Sustav priznavanja volontiranja i aktivnosti kojima se dobrovoljan rad vrednuje.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">15</span>
+                <div class="goal-text">
+                    <h4>Bolja prometna povezanost</h4>
+                    <p>Unaprjeđenje prijevoza između Splita i okolnih mjesta koja su slabo pokrivena.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">16</span>
+                <div class="goal-text">
+                    <h4>Pravedni kriteriji za studentski dom</h4>
+                    <p>Jasniji i pravedniji sustav dodjele smještaja koji ne diskriminira domaće studente.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">17</span>
+                <div class="goal-text">
+                    <h4>Zaštita studenata od sezonskog izbacivanja</h4>
+                    <p>Uvođenje studentskih najamnih ugovora koji štite od izbacivanja za turističku sezonu.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">18</span>
+                <div class="goal-text">
+                    <h4>Više i veće stipendije</h4>
+                    <p>Zagovaranje povećanja stipendija koje prate stvarne troškove života studenata.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">19</span>
+                <div class="goal-text">
+                    <h4>Kreativni hub za mlade</h4>
+                    <p>Zajednički radni prostor za mlade umjetnike, glazbenike i kreativce u gradu.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">20</span>
+                <div class="goal-text">
+                    <h4>Besplatne pripreme za maturu</h4>
+                    <p>Organizirani ciklusi besplatnih priprema u suradnji s profesorima i studentima.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">21</span>
+                <div class="goal-text">
+                    <h4>Sufinanciranje vozačkog ispita</h4>
+                    <p>Pomoć mladima iz socijalno ugroženih obitelji pri plaćanju autoškole.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">22</span>
+                <div class="goal-text">
+                    <h4>Digitalna platforma za poslove</h4>
+                    <p>Lokalna baza provjerenih poslodavaca i studentskih poslova s ocjenama korisnika.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">23</span>
+                <div class="goal-text">
+                    <h4>Revitalizacija školskih igrališta</h4>
+                    <p>Obnova, rasvjeta i otvorenost školskih terena za mlade iz kvarta navečer.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">24</span>
+                <div class="goal-text">
+                    <h4>Financijska pismenost mladih</h4>
+                    <p>Radionice o porezima, ugovorima i prvom zaposlenju — praktično, ne teorijski.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">25</span>
+                <div class="goal-text">
+                    <h4>Sigurnost u prometu — pješačke zone</h4>
+                    <p>Mapiranje kritičnih točaka i bolja rasvjeta u gradu i okolici.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">26</span>
+                <div class="goal-text">
+                    <h4>Gaming kultura i e-sport</h4>
+                    <p>Gradski turniri i edukacije o programiranju igara kao legitimna aktivnost.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">27</span>
+                <div class="goal-text">
+                    <h4>Borba protiv cyberbullyinga</h4>
+                    <p>Mreža podrške za žrtve digitalnog nasilja uz stručnu i vršnjačku pomoć.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">28</span>
+                <div class="goal-text">
+                    <h4>Modernizacija studentskih menzi</h4>
+                    <p>Zdravija ponuda, dulje radno vrijeme i digitalizacija sustava u menzama.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">29</span>
+                <div class="goal-text">
+                    <h4>Upoznaj svoju lokalnu sredinu</h4>
+                    <p>Besplatne interaktivne ture i escape room koncepti za mlade po gradu.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">30</span>
+                <div class="goal-text">
+                    <h4>Podrška mladim kreativcima na mrežama</h4>
+                    <p>Edukacije o digitalnom marketingu, autorskim pravima i odgovornom sadržaju.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">31</span>
+                <div class="goal-text">
+                    <h4>Jeftinije ulaznice za kulturna događanja</h4>
+                    <p>Posebna kartica s popustom za sve mlade do 25 na kulturne manifestacije Grada.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">32</span>
+                <div class="goal-text">
+                    <h4>Transparentnija dodjela prostora za udruge</h4>
+                    <p>Javni registar praznih gradskih prostora s bodovanjem za projekte mladih.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">33</span>
+                <div class="goal-text">
+                    <h4>Bolja biciklistička infrastruktura</h4>
+                    <p>Sigurne rute od kvartova prema kampusu i staroj gradskoj jezgri.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">34</span>
+                <div class="goal-text">
+                    <h4>Prava mladih radnika</h4>
+                    <p>Vodič o minimalnoj satnici, pravima i osiguranju za mlade koji rade studentski.</p>
+                </div>
+            </div>
+
+            <div class="goal-card">
+                <span class="goal-num">35</span>
+                <div class="goal-text">
+                    <h4>Godišnji skupovi mladih</h4>
+                    <p>Forum gdje mladi iz svih kvartova sjede za stol s Gradonačelnikom i vijećnicima.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026. Puls mladih — Ritam mladih koji vodi do promjene.
+</footer>
+
+</body>
+</html>
