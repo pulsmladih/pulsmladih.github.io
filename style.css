@@ -875,12 +875,12 @@ footer {
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(250,248,243,0.98);
+        background: var(--nav-bg);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 20px 8%;
         gap: 16px;
-        border-top: 1px solid rgba(26,23,16,0.08);
+        border-top: 1px solid var(--border);
         box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
 
